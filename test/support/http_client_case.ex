@@ -29,7 +29,7 @@ defmodule Wallaby.HttpClientCase do
   Parses the body of an incoming http request
   """
   def parse_body(conn) do
-    opts = Plug.Parsers.init(parsers: [:urlencoded, :json], json_decoder: Poison)
+    opts = Plug.Parsers.init(parsers: [:urlencoded, :json], json_decoder: Wallaby.json_library())
     Plug.Parsers.call(conn, opts)
   end
 end
